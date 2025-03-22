@@ -600,7 +600,7 @@
 
 /* textarea ------------ ---------- - - - - --- --- - - --  - - -  */
 .form_f75fb0 {
-    padding: 0 16px 8px 8px;
+    padding: 4px 16px 8px 8px;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -640,6 +640,7 @@
             flex-direction: column;
             align-items: end;
             gap: 4px;
+            overflow: visible !important;
 
             .stackedBars__74017 {
                 width: 100%;
@@ -655,10 +656,9 @@
                 background: none;
                 width: calc(100% + 8px);
                 align-items: end;
-                /* padding-right: 0px; */
                 overflow: visible !important;
                 overflow-y: scroll !important;
-                min-height: calc(100% + 2px);
+                min-height: calc(100% + 4px);
 
                 .inner__74017 {
                     border-radius: var(--gnome-button-radius);
@@ -743,9 +743,7 @@
 
 
                         .placeholder__1b31f {
-                            padding-top: 7px;
-                            padding-left: 7px;
-                            padding-bottom: 0px;
+                            display: none;
                         }
 
                         .editor__1b31f {
@@ -763,7 +761,7 @@
                                 position: absolute;
                                 content: "";
                                 left: -2px;
-                                top: 0;
+                                top: 0px;
                                 width: calc(100%);
                                 height: calc(100% - 2px);
                                 border-radius: calc(var(--gnome-button-radius) + 2px);
@@ -783,7 +781,7 @@
 }
 
 .scrollerSpacer__36d07 {
-    height: 12px;
+    height: 24px;
 }
 
 /* MESSAGES ----------------------------------------------------------------- */
@@ -806,6 +804,34 @@
 
     .buttons__5126c {
         display: var(--gord-message-actions);
+    }
+
+    &.mentioned__5126c {
+        background-color: var(--gnome-selection-bg);
+        border-radius: var(--gnome-button-radius);
+
+        &::before {
+            display: none;
+        }
+
+        &:hover {
+            background-color: var(--gnome-selection-bg) !important;
+        }
+    }
+
+    &:hover {
+        background-color: transparent !important;
+    }
+
+    .timestampVisibleOnHover_c19a55 {
+        position: absolute !important;
+        right: 20px !important;
+        text-align: left !important;
+        left: auto !important;
+
+        time {
+            font-size: 0.75rem !important;
+        }
     }
 }
 
