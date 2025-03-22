@@ -768,6 +768,7 @@
                                 height: calc(100% - 2px);
                                 border-radius: calc(var(--gnome-button-radius) + 2px);
                                 border: 2px solid var(--brand-300);
+                                pointer-events: none;
                             }
                         }
                     }
