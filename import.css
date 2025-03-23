@@ -25,6 +25,8 @@
     --button-positive-background: var(--gnome-palette-green-3) !important;
     --input-background: var(--gnome-entry-background);
     --input-border: var(--gnome-entry-focused-border-color);
+    --modal-background: var(--gnome-window-background);
+    --home-background: var(--gnome-view-background);
 }
 
 /* --lag fix-- */
