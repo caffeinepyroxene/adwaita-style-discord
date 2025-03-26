@@ -1,10 +1,6 @@
 @import url(./src/colorvars.css);
 @import url(./src/accent/blue.css);
 
-* {
-    font-family: system-ui !important;
-}
-
 :root {
     --gord-chat-width: 1000px;
     --gord-message-actions: none;
@@ -13,10 +9,14 @@
 :root,
 .recentMentionsPopout__95796,
 .layer_da8173 {
-    --background-primary: var(--gnome-view-background);
+    --background-primary: var(--gnome-view-background) !important;
+    --background-base-lowest: var(--gnome-view-background) !important;
+    --background-base-lower: var(--gnome-view-background) !important;
     --__header-bar-background: var(--gnome-view-background) !important;
     --background-secondary: var(--gnome-secondary-sidebar-background);
+    --bg-base-secondary: var(--gnome-view-background) !important;
     --background-tertiary: var(--gnome-sidebar-background);
+    --bg-base-tertiary: var(--gnome-sidebar-background) !important;
     --background-secondary-alt: var(--gnome-sidebar-background);
     --channel-icon: var(--gnome-toolbar-icon-fill);
     --interactive-normal: var(--gnome-toolbar-icon-fill);
@@ -27,10 +27,31 @@
     --input-border: var(--gnome-entry-focused-border-color);
     --modal-background: var(--gnome-window-background);
     --home-background: var(--gnome-view-background);
+    --bg-base-primary: var(--gnome-view-background);
+    --font-primary: system-ui;
+    --chat-background-default: var(--gnome-view-background) !important;
+    --border-subtle: transparent !important;
 }
 
+/* fuck visual refresh */
+.privateChannels__35e86,
+.scroller__99e7c,
+.container__2637a {
+    background-color: var(--gnome-secondary-sidebar-background) !important;
+}
+
+.guilds_c48ade, .sidebar_c48ade {
+    background-color: var(--gnome-sidebar-background) !important;
+}
+
+.guilds_c48ade, .tree_ef3116 {
+    overflow: visible!important;
+}
+/* .itemsContainer_ef3116{
+    overflow: visible scroll;
+} */
 /* --lag fix-- */
-.guilds_c48ade,
+/* .guilds_c48ade, */
 /* server list */
 .chatContent_f75fb0,
 /* main chat messages container */
@@ -127,6 +148,8 @@
 }
 
 .subtitleContainer_f75fb0 {
+    box-shadow: var(--elevation-stroke);
+
     .title_f75fb0 {
         min-height: 46px !important;
         max-height: 46px;
@@ -306,37 +329,55 @@
 
 
 /* CHANNLE LIST ------------ --------------- --          ------ */
-.container__2637a .animatedContainer_f37cb1>.bannerImage_f37cb1 {
+.bannerImage_f37cb1 {
     width: 100%;
 
-    >.bannerImg_f37cb1 {
+    .bannerImg_f37cb1 {
         width: 100%;
     }
 }
 
-#app-mount .sidebar_c48ade {
+.sidebar_c48ade {
+    min-width: 280px !important;
     width: 280px !important;
     border-radius: 0px;
+    &::after {
+        display: none!important;
+    }
+    .sidebarList_c48ade {
+        border-radius: 0px!important;
+    }
 }
 
 .header_f37cb1 {
     height: 46px;
+
     .name_f37cb1 {
         margin-left: auto;
         text-align: center;
 
     }
+
     .guildIconV2Container__85d16 {
         margin: 0;
         width: 18px;
+
         .flowerStarContainer__3e3b0 {
             margin-left: 1px;
         }
     }
 }
 
-.panels_c48ade .container__37e49 {
-    justify-content: space-between;
+.panels_c48ade {
+        left: 0px!important;
+        bottom: 0px!important;
+        width: 100%!important;
+        border-radius: 0px!important;
+        border: none!important;
+        background: linear-gradient(to top, var(--gnome-secondary-sidebar-background) 0%, transparent 100%)!important;
+    .container__37e49 {
+        justify-content: space-between;
+    }
 }
 
 .dm__972a0,
@@ -389,36 +430,49 @@
 .content__99f8c div[style="height: 12px;"] {
     height: 6px !important;
 }
+
 .privateChannels__35e86 .searchBar__35e86 {
     max-height: 46px;
-    .searchBarComponent__35e86 {
+
+    .button__201d5 {
         margin-left: auto;
         font-size: 0px;
         width: 34px;
         height: 34px;
+        min-width: 34px;
+        min-height: 34px;
+        padding: 0px;
         overflow: visible;
         background-color: transparent;
         background-image: url("data:image/svg+xml,%3Csvg width='34' height='34' viewBox='0 0 34 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1618_9)'%3E%3Cpath d='M15.6055 9.05859C12.0273 9.05859 9.10547 11.9805 9.10547 15.5586C9.10547 19.1367 12.0273 22.0547 15.6055 22.0547C17.0352 22.0547 18.3594 21.5898 19.4336 20.8008L22.4062 23.7734C23.3633 24.7148 24.7695 23.2773 23.8125 22.3359L20.8555 19.3789C21.6367 18.3047 22.1055 16.9844 22.1055 15.5586C22.1055 11.9805 19.1797 9.05859 15.6055 9.05859ZM15.6055 11.0586C18.1016 11.0586 20.1055 13.0625 20.1055 15.5586C20.1055 18.0547 18.1016 20.0547 15.6055 20.0547C13.1055 20.0547 11.1055 18.0547 11.1055 15.5586C11.1055 13.0625 13.1055 11.0586 15.6055 11.0586Z' fill='white' style='fill:white;fill-opacity:1;'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1618_9'%3E%3Crect width='16' height='16' fill='white' style='fill:white;fill-opacity:1;' transform='translate(9 9)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
         border-radius: var(--gnome-button-radius);
         transition: background-color 0.2s;
-        &::before {
-            position: absolute;
-            content: "Discord";
-            font-size: 16px;
-            color: var(--gnome-toolbar-icon-fill);
-            left: 0px;
-            right: 0px;
-            align-self: center;
-            justify-self: center;
-            pointer-events: none;
-            font-weight: 600;
-        }
+        box-sizing: content-box;
+
         &:hover {
             background-color: var(--gnome-button-hover-background);
         }
+
+        .contents__201d5 {
+            display: none;
+        }
+
     }
 
+    &::before {
+        position: absolute;
+        content: "Discord";
+        font-size: 16px;
+        color: var(--gnome-toolbar-icon-fill);
+        left: 0px;
+        right: 0px;
+        align-self: center;
+        justify-self: center;
+        pointer-events: none;
+        font-weight: 600;
+    }
 }
+
 /* Notices -------------------------------------------*/
 .notice__6e2b9 {
     .closeButton__6e2b9 {
@@ -646,6 +700,7 @@
                 overflow: visible !important;
                 padding: 60px 8px 60px 16px;
             }
+            
         }
     }
 
@@ -758,6 +813,7 @@
             align-items: end;
             gap: 0px;
             overflow: visible !important;
+            border: none;
 
             .stackedBars__74017 {
                 width: 100%;
@@ -793,6 +849,7 @@
                             width: 34px;
                             height: 34px;
                             justify-self: end;
+                            padding: 0px !important;
 
                             .attachButtonInner__0923f svg {
                                 width: 16px !important;
@@ -870,6 +927,7 @@
                             border-radius: var(--gnome-button-radius);
                             background-color: var(--gnome-entry-background);
                             box-sizing: border-box;
+                            margin-left: 0px !important;
 
                             >div {
                                 min-height: 22px;
@@ -901,9 +959,11 @@
             }
         }
     }
+
     &:has(.innerDisabled__74017) {
         display: none;
     }
+
     .wrapper__44df5 {
         margin: 0px;
         background-color: transparent;
@@ -966,26 +1026,29 @@
 }
 
 .jumpToPresentBar__0f481 {
-    bottom: 16px;
-    right: 20px;
-    left: auto;
-    padding-bottom: 0px;
-    padding: 4px;
+    bottom: 16px !important;
+    right: 20px !important;
+    left: auto !important;
+    padding-bottom: 0px !important;
+    padding: 4px !important;
     opacity: 1 !important;
-    border-radius: 20px;
-    width: fit-content;
-padding: 8px;
-    background-color: var(--gnome-card-shade-color);
+    border-radius: 20px !important;
+    width: fit-content !important;
+    padding: 8px !important;
+    margin: 0px !important;
+    background-color: var(--gnome-card-shade-color) !important;
+    min-width: 0px !important;
+    border: none !important;
+
     .barButtonMain__0f481 {
         flex: none;
     }
 
-    .barButtonAlt__0f481 {
+    .button__201d5 {
         font-size: 0;
-
-        .barButtonIcon__0f481 {
-            margin: 0;
-        }
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
     }
 }
 
@@ -1001,6 +1064,7 @@ padding: 8px;
     opacity: 1 !important;
     border-radius: 20px;
     width: fit-content;
+
     /* background-color: var(--gnome-card-shade-color); */
     .barButtonMain__0f481 {
         flex: none;
@@ -1014,6 +1078,7 @@ padding: 8px;
         }
     }
 }
+
 /* CONTEXT MENUS -------------- */
 .menu_c1e9c4 {
     background: var(--gnome-menu-background);
@@ -1157,4 +1222,54 @@ padding: 8px;
         transform: none !important;
     }
 
+}
+
+.visual-refresh {
+    div[class^="subtitleContainer_"],
+    main.container__133bf {
+        & > section.container__9293f {
+            padding-right: 86px;
+        }
+    }
+
+    div.page_c48ade {
+        &:not(:has(> div.chat_f75fb0)) {
+            anchor-name: --vr-header-snippet;
+        }
+
+        & > div.chat_f75fb0 {
+            anchor-name: --vr-header-snippet;
+        }
+    }
+
+    div.base_c48ade {
+        grid-template-rows: [top] 0 [titleBarEnd] min-content [noticeEnd] 1fr [end];
+
+        & > div[class^="bar_"] {
+            position: absolute;
+            position-anchor: --vr-header-snippet;
+            top: var(--vr-header-snippet-top);
+            right: anchor(right);
+            width: anchor-size(width);
+            padding: 0;
+        }
+
+        & div.trailing_c38106 {
+            background: none;
+            border: none;
+            height: var(--custom-channel-header-height);
+        }
+
+        & > div.content_c48ade {
+            z-index: 0;
+        }
+    }
+
+    :not(:has(div.page_c48ade > div.chat_f75fb0)) div.base_c48ade > div.bar_c38106 {
+        right: 0 !important;
+    }
+
+    ul[data-list-id="guildsnav"] > div.itemsContainer_ef3116 > div.stack_dbd263 {
+        margin-top: 16px;
+    }
 }
