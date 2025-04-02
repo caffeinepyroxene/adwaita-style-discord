@@ -1,5 +1,5 @@
-@import url(./src/colorvars.css);
-@import url(./src/accent/blue.css);
+@import url(https://raw.githubusercontent.com/caffeinepyroxene/adwaita-style-discord/refs/heads/main/src/colorvars.css);
+@import url(https://raw.githubusercontent.com/caffeinepyroxene/adwaita-style-discord/refs/heads/main/src/accent/blue.css);
 
 :root {
     --gord-chat-width: 1000px;
