@@ -1142,8 +1142,16 @@ border-radius: 16px;
     display: none !important;
 }
 .winButton_c38106 {
-  width: 40px;
+  padding-right: 10px;
+  padding-left: 10px;
+  width: 20px;
   height: 40px;
   border-radius: 16px;
   transition: background ease 200ms;
+}
+.anchor_edefb8{
+    display: none !important;
+}
+.winButtonsWithDivider_c38106:before{
+    display: none;
 }
