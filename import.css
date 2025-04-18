@@ -1,9 +1,14 @@
 @import url(https://raw.githubusercontent.com/caffeinepyroxene/adwaita-style-discord/refs/heads/main/src/colorvars.css);
 @import url(https://raw.githubusercontent.com/caffeinepyroxene/adwaita-style-discord/refs/heads/main/src/accent/blue.css);
+@import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Samsung.css);
+@import url("https://gist.githubusercontent.com/Kodarru/b5185a06777663906915724563771835/raw/HideTimestamps.css");
+@import url("https://gold-me.github.io/DiscordIcons/main.css");
 
 :root {
+    --font-primary: 'Adwaita Sans';
     --gord-chat-width: 1000px;
     --gord-message-actions: none;
+    --guildbar-avatar-size: 40px;
 }
 
 :root,
@@ -288,7 +293,7 @@
 
     &:hover::before {
         position: absolute;
-        border-radius: 16px;
+        border-radius: 5px;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
@@ -340,12 +345,12 @@
 .sidebar_c48ade {
     min-width: 280px !important;
     width: 280px !important;
-    border-radius: 16px;
+    border-radius: 0px;
     &::after {
         display: none!important;
     }
     .sidebarList_c48ade {
-        border-radius: 16px!important;
+        border-radius: 0px!important;
     }
 }
 
@@ -372,7 +377,7 @@
         left: 0px!important;
         bottom: 0px!important;
         width: 100%!important;
-        border-radius: 16px!important;
+        border-radius: 0px!important;
         border: none!important;
         background: linear-gradient(to top, var(--gnome-secondary-sidebar-background) 0%, transparent 100%)!important;
     .container__37e49 {
@@ -566,7 +571,7 @@
     justify-self: center;
     align-self: center;
     display: flex;
-    border-radius: 16px;
+    border-radius: 10px;
     overflow: hidden;
     border: rgba(255, 255, 255, 0.1) 1px solid;
 
@@ -878,7 +883,7 @@
 /* CONTEXT MENUS -------------- */
 .menu_c1e9c4 {
     background: var(--gnome-menu-background);
-    border-radius: 16px;
+    border-radius: 10px;
 
     .item_c1e9c4:not(.checkboxContainer_c1e9c4) .iconContainer_c1e9c4 .icon_c1e9c4 {
         display: none;
@@ -896,10 +901,61 @@
 
 
 
+/* Text Area ------------------------------------------ -------------------------------------- */
+button[aria-label|="Select emoji"]{
+    height: 40px;
+    width: 40px;
+}
+.spriteContainer__04eed {
+  --custom-emoji-sprite-size: 26px !important;
+}
+:where(.visual-refresh) .themedBackground__74017{
+    background: var(--background-floating) !important;
+}
+button[aria-label|="Send a gift"]{
+    display:none;
+}
+button[aria-label|="Open GIF picker"]{
+    display:none;
+}
+button[aria-label|="Open sticker picker"]{
+    display:none;
+}
+button[aria-label|="Apps"]{
+    display:none;
+}
+button[aria-label|="Open Translate Modal"]{
+    display:none;
+}
 
+/* Fix Height Padding for VR */
+.visual-refresh {
+    --custom-channel-textarea-text-area-height: 56px;
+    .form_f75fb0 {
+        display: flex;
+        flex-direction: column;
+    }
+    .channelTextArea_f75fb0 {
+        margin-bottom: 8px;
+    }
+    .base_b88801 {
+        position: static;
+        order: -1;
+    }
+}
 
+.listeningAlong_e0cf27 {
+border-radius: 16px;    
+}
 
+/* Remove the Create Invite button from Channel Lists */
+[class^="iconVisibility_"] [aria-label="Create Invite"] {
+	display: none !important;
+}
 
+[class^="iconVisibility_"] [class^="channelInfo_"] {
+	display: flex !important;
+}
 
 /* VOICE ------------------------------------------------ -------------------------------------- */
 
@@ -944,7 +1000,7 @@
                         padding: 6px;
                         margin: 0px !important;
                         background: linear-gradient(to top, black 0%, transparent 100%) !important;
-                        border-radius: 16px;
+                        border-radius: 0px;
                     }
 
                     .statusContainer__2f4f7 {
@@ -1068,4 +1124,23 @@
     ul[data-list-id="guildsnav"] > div.itemsContainer_ef3116 > div.stack_dbd263 {
         margin-top: 16px;
     }
+}
+
+/*** ***/
+
+/* Folder Icons Rounded */
+[class*="closedFolderIconWrapper_"] > [class*="guildIcon_"],
+[data-list-item-id*="guildsnav_"] > [class*="icon_"] {
+    border-radius: 50% !important;
+}
+
+/* Title Bar Buttons */
+.winButtonMinMax_c38106{
+    display: none !important;
+}
+.winButton_c38106 {
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+  transition: background ease 200ms;
 }
