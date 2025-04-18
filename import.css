@@ -786,7 +786,7 @@
 .message__5126c {
     .header_c19a55 {
         display: flex;
-        justify-content: space-between;
+        justify-content: normal !important;
 
         .username_c19a55 {
             font-weight: 700;
@@ -911,9 +911,6 @@ button[aria-label|="Select emoji"]{
 }
 :where(.visual-refresh) .themedBackground__74017{
     background: var(--background-floating) !important;
-}
-.header_c19a55{
-    justify-content: normal;
 }
 button[aria-label|="Send a gift"]{
     display:none;
