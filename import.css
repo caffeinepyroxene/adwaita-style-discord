@@ -586,7 +586,7 @@
             right: 0px;
             top: 0;
             flex: none;
-            background-color: var(--background-primary);
+            background-color: var(--background-secondary);
             padding: 0px;
             height: 46px;
             width: 100%;
@@ -696,7 +696,7 @@
                 width: 278px;
                 position: fixed;
                 pointer-events: none;
-                background-color: var(--background-secondary);
+                background-color: var(--background-primary);
                 box-shadow: var(--elevation-low);
                 color: white;
             }
